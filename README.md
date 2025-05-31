@@ -1,4 +1,4 @@
-# 🏥 CensoHGP - Sistema Hospitalar
+# 🏥 SalusData - Sistema Hospitalar
 
 Sistema para controle e visualização do estado atual dos leitos hospitalares, pacientes e departamentos do Hospital Geral de Palmas (HGP).
 
