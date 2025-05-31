@@ -8,7 +8,7 @@ import { PrimeNGConfig } from 'primeng/api';
 export class AppComponent {
   constructor(private readonly primengConfig: PrimeNGConfig) { }
 
-  title = 'censohgp';
+  title = 'salusdata';
   ngOnInit() {
         this.primengConfig.ripple = true;
     }

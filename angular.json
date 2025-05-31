@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "censohgp": {
+    "salusdata": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/censohgp",
+            "outputPath": "dist/salusdata",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -68,10 +68,10 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "censohgp:build:production"
+              "browserTarget": "salusdata:build:production"
             },
             "development": {
-              "browserTarget": "censohgp:build:development"
+              "browserTarget": "salusdata:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "censohgp:build"
+            "browserTarget": "salusdata:build"
           }
         },
         "test": {
