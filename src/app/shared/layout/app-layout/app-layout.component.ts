@@ -23,27 +23,27 @@ export class AppLayoutComponent implements OnDestroy {
     @ViewChild(AppTopBarComponent) appTopbar!: AppTopBarComponent;
 constructor(public layoutService: LayoutService, public renderer: Renderer2, public router: Router) {
         this.overlayMenuOpenSubscription = this.layoutService.overlayOpen$.subscribe(() => {
-            if (!this.menuOutsideClickListener) {
-                this.menuOutsideClickListener = this.renderer.listen('document', 'click', event => {
-                    const isOutsideClicked = !(this.appSidebar.el.nativeElement.isSameNode(event.target) || this.appSidebar.el.nativeElement.contains(event.target)
-                        || this.appTopbar.menuButton.nativeElement.isSameNode(event.target) || this.appTopbar.menuButton.nativeElement.contains(event.target));
+            this.menuOutsideClickListener ??= this.renderer.listen('document', 'click', event => {
+                const isOutsideClicked = !(
+                    (this.appSidebar.el.nativeElement.isSameNode?.(event.target) ?? this.appSidebar.el.nativeElement.contains?.(event.target)) ??
+                    (this.appTopbar.menuButton.nativeElement.isSameNode?.(event.target) ?? this.appTopbar.menuButton.nativeElement.contains?.(event.target))
+                );
 
-                    if (isOutsideClicked) {
-                        this.hideMenu();
-                    }
-                });
-            }
+                if (isOutsideClicked) {
+                    this.hideMenu();
+                }
+            });
 
-            if (!this.profileMenuOutsideClickListener) {
-                this.profileMenuOutsideClickListener = this.renderer.listen('document', 'click', event => {
-                    const isOutsideClicked = !(this.appTopbar.menu.nativeElement.isSameNode(event.target) || this.appTopbar.menu.nativeElement.contains(event.target)
-                        || this.appTopbar.topbarMenuButton.nativeElement.isSameNode(event.target) || this.appTopbar.topbarMenuButton.nativeElement.contains(event.target));
+            this.profileMenuOutsideClickListener ??= this.renderer.listen('document', 'click', event => {
+                const isOutsideClicked = !(
+                    (this.appTopbar.menu.nativeElement.isSameNode?.(event.target) ?? this.appTopbar.menu.nativeElement.contains?.(event.target)) ??
+                    (this.appTopbar.topbarMenuButton.nativeElement.isSameNode?.(event.target) ?? this.appTopbar.topbarMenuButton.nativeElement.contains?.(event.target))
+                );
 
-                    if (isOutsideClicked) {
-                        this.hideProfileMenu();
-                    }
-                });
-            }
+                if (isOutsideClicked) {
+                    this.hideProfileMenu();
+                }
+            });
 
             if (this.layoutService.state.staticMenuMobileActive) {
                 this.blockBodyScroll();

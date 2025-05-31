@@ -69,13 +69,11 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
         this.menuSourceSubscription = this.menuService.menuSource$.subscribe(value => {
             Promise.resolve(null).then(() => {
                 if (value.routeEvent) {
-                    this.active = (value.key === this.key || value.key.startsWith(this.key + '-')) ? true : false;
+                    this.active = (value.key === this.key || value.key.startsWith(this.key + '-'));
                 }
-                else {
-                    if (value.key !== this.key && !value.key.startsWith(this.key + '-')) {
+                else if (value.key !== this.key && !value.key.startsWith(this.key + '-')) {
                         this.active = false;
                     }
-                }
             });
         });
 
@@ -127,8 +125,14 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
         this.menuService.onMenuStateChange({ key: this.key });
     }
 
-    get submenuAnimation() {
-        return this.root ? 'expanded' : (this.active ? 'expanded' : 'collapsed');
+     get submenuAnimation() {
+        let result: string;
+        if (this.root) {
+            result = 'expanded';
+        } else {
+            result = this.active ? 'expanded' : 'collapsed';
+        }
+        return result;
     }
 
     @HostBinding('class.active-menuitem')

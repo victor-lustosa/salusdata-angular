@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { LayoutService } from 'src/app/shared/layout/service/app-layout.service';
-import { Product } from '../api/product';
+import { Product } from '../model/product';
 import { ProductService } from '../service/product.service';
 
 @Component({
@@ -29,7 +29,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.initChart();
-        this.productService.getProductsSmall().then(data => this.products = data);
+        this.productService.getProductsSmall().subscribe(data => this.products = data);
 
         this.items = [
             { label: 'Add New', icon: 'pi pi-fw pi-plus' },

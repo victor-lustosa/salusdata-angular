@@ -42,9 +42,9 @@ export class LayoutService {
         menuHoverActive: false
     };
 
-    private configUpdate = new Subject<AppConfig>();
+    private readonly configUpdate = new Subject<AppConfig>();
 
-    private overlayOpen = new Subject<any>();
+    private readonly overlayOpen = new Subject<any>();
 
     configUpdate$ = this.configUpdate.asObservable();
 
