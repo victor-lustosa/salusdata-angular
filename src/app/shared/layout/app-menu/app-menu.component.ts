@@ -19,22 +19,22 @@ export class AppMenuComponent implements OnInit {
           {
             label: 'Usuários',
             icon: 'pi pi-fw pi-users',
-            routerLink: ['/uikit/formlayout'],
+            routerLink: ['/users/'],
           },
           {
             label: 'Pacientes',
             icon: 'pi pi-fw pi-user',
-            routerLink: ['/uikit/input'],
+            routerLink: ['/patients/'],
           },
           {
             label: 'Departamentos',
             icon: 'pi pi-fw pi-building',
-            routerLink: ['/uikit/floatlabel'],
+            routerLink: ['/departments/'],
           },
           {
             label: 'Precauções',
             icon: 'pi pi-fw pi-flag',
-            routerLink: ['/uikit/invalidstate'],
+            routerLink: ['/precautions/'],
           },
           {
             label: 'Checklists',
@@ -43,17 +43,17 @@ export class AppMenuComponent implements OnInit {
               {
                 label: 'Incidentes',
                 icon: 'pi pi-fw pi-exclamation-circle',
-                routerLink: ['/auth/login'],
+                routerLink: ['/checklists/incidents'],
               },
               {
                 label: 'Procedimentos',
                 icon: 'pi pi-fw pi-check',
-                routerLink: ['/auth/error'],
+                routerLink: ['/checklists/procedures'],
               },
               {
                 label: 'Fatores de Risco',
                 icon: 'pi pi-fw pi-exclamation-triangle',
-                routerLink: ['/auth/access'],
+                routerLink: ['/checklists/risk-factors'],
               },
             ],
           },

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ChecklistsRoutingModule } from './checklists-routing.module';
+import { IncidentsRoutingModule } from './incidents-routing.module';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    ChecklistsRoutingModule
+    IncidentsRoutingModule
   ]
 })
-export class ChecklistsModule { }
+export class IncidentsModule { }
